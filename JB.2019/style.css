@@ -1,0 +1,102 @@
+/* Colores en un solo lugar: cámbialos aquí y cambia toda la página */
+:root {
+  --fondo1: #2b0a1a;
+  --fondo2: #6b1d3a;
+  --acento: #ff8fab;
+  --texto: #fff0f3;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--texto);
+  background: linear-gradient(160deg, var(--fondo1), var(--fondo2));
+  overflow-x: hidden;
+}
+
+/* Cada "pantalla" ocupa todo el alto y está oculta por defecto */
+.pantalla {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  gap: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 2;
+}
+
+/* La pantalla con clase "activa" se ve (el JS cambia esta clase) */
+.pantalla.activa {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+h1 { font-size: clamp(1.8rem, 6vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 5vw, 2.4rem); }
+p  { font-size: 1.1rem; max-width: 520px; line-height: 1.6; }
+
+.paso {
+  color: var(--acento);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: .85rem;
+}
+
+button {
+  margin-top: 12px;
+  padding: 14px 34px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--acento);
+  color: #3a0d22;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255, 143, 171, .5);
+  transition: transform .2s;
+}
+button:hover { transform: scale(1.06); }
+
+/* La carta con aspecto de papel */
+.papel {
+  background: rgba(255, 240, 243, .08);
+  border: 1px solid rgba(255, 143, 171, .4);
+  border-radius: 16px;
+  padding: 26px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 55vh;
+  overflow-y: auto;
+  text-align: left;
+}
+#textoCarta { white-space: pre-wrap; max-width: none; }
+
+#final { width: 100%; max-width: 420px; transition: opacity 1.5s; }
+#final.oculto { opacity: 0; pointer-events: none; height: 0; overflow: hidden; }
+.cancion-frase { margin-bottom: 12px; color: var(--acento); font-style: italic; }
+#final iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+}
+
+/* Corazones flotantes de fondo */
+#corazones { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+.corazon {
+  position: absolute;
+  bottom: -40px;
+  opacity: .5;
+  animation: subir linear forwards;
+}
+@keyframes subir {
+  to { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
+}

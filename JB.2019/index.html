@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Para ti 💌</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Aquí aparecen los corazones flotantes (los crea el JS) -->
+  <div id="corazones"></div>
+
+  <!-- Música de fondo. Se activa cuando ella toca "Abrir" -->
+  <audio id="musica" src="cancion.mp3"></audio>
+
+  <!-- PANTALLA 0: inicio -->
+  <section class="pantalla activa">
+    <h1>Hay algo que quiero que veas 💌</h1>
+    <p>Sube el volumen y toca el botón</p>
+    <button id="btnEmpezar">Abrir</button>
+  </section>
+
+  <!-- PASO 1 -->
+  <section class="pantalla">
+    <p class="paso">Paso 1</p>
+    <h2>Han pasado varios meses...</h2>
+    <p>Y aun así, hay momentos en que pienso en ti.</p>
+    <button class="siguiente">Continuar</button>
+  </section>
+
+  <!-- PASO 2 -->
+  <section class="pantalla">
+    <p class="paso">Paso 2</p>
+    <h2>Quise decirte algo</h2>
+    <p>Pero me pareció mejor escribirlo con calma.</p>
+    <button class="siguiente">Continuar</button>
+  </section>
+
+  <!-- PASO 3 -->
+  <section class="pantalla">
+    <p class="paso">Paso 3</p>
+    <h2>Te dejé una carta</h2>
+    <p>Léela sin prisa. 🤍</p>
+    <button class="siguiente">Abrir carta</button>
+  </section>
+
+  <!-- CARTA + FINAL -->
+  <section class="pantalla" id="carta">
+    <div class="papel">
+      <p id="textoCarta"></p>
+    </div>
+
+    <!-- Esto aparece cuando termina de escribirse la carta -->
+    <div id="final" class="oculto">
+      <p class="cancion-frase">Esta canción me recuerda a ti 🎶</p>
+
+      <!-- Reemplaza ID_DE_LA_CANCION por el de Spotify (explico abajo) -->
+      <iframe src="https://open.spotify.com/embed/track/ID_DE_LA_CANCION" width="100%" height="152" frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
